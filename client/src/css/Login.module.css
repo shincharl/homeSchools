@@ -1,0 +1,162 @@
+.pageEnvelope {
+    background-color: #90be70;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.wrap{
+    background-color: #fff;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #d4c8b5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 40px;
+}
+
+.loginBox {
+    width: 50%;
+    height: 700px;
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    
+}
+
+.loginBox h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #444;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.inputGroup label {
+    font-size: 14px;
+    color: #555;
+}
+
+.inputGroup input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.inputGroup input:focus {
+    border-color: #d3b88c;
+    box-shadow: 0 0 5px rgba(211, 184, 140, 0.3);
+}
+
+.bottomLinks {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomLinks a {
+    font-size: 14px;
+    color: #7a6e57;
+    text-decoration: none;
+}
+
+.bottomLinks a:hover {
+    text-decoration: underline;
+}
+
+/* 공통 버튼 스타일 */
+.loginBtn,
+.kakaoBtn,
+.naverBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 로그인 버튼 배경색 */
+.loginBtn {
+    background: #d3b88c;
+    color: #fff;
+}
+
+/* 로그인 버튼 hover */
+.loginBtn:hover {
+    background: #c9a879;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 로그인 버튼 active */
+.loginBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* 카카오 버튼 배경색 */
+.kakaoBtn {
+    background-color: #FEE500;
+    color: #3C1E1E;
+}
+
+/* 카카오 버튼 hover */
+.kakaoBtn:hover {
+    background-color: #fddc00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 카카오 버튼 active */
+.kakaoBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* 네이버 버튼 */
+.naverBtn {
+    background-color: #03C75A;
+    color: #ffffff;
+}
+
+/* 네이버 버튼 hover */
+.naverBtn:hover {
+    background-color: #02b351;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 네이버 버튼 active */
+.naverBtn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

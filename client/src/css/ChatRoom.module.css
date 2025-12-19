@@ -1,0 +1,199 @@
+.chatRoom {
+    width: 100%;
+    height: 100%;
+}
+
+/* 입장 화면 */
+
+.welcomeCard {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.welcomeCard h3 {
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.roomList {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.roomItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 18px;
+    margin-bottom: 10px;
+
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.roomItem span {
+    margin-left: 10px;
+    font-size: 13px;
+    color: #777;
+}
+
+.roomInput {
+    display: flex;
+    gap: 10px;
+}
+
+.roomInput input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* 화상 회의 화면 */
+
+.meetingLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    height: 100%;
+    min-height: 0;
+}
+
+.meetingHeader {
+    font-weight: 600;
+    padding: 10px 14px;
+    background: #f3f6f4;
+    border-radius: 10px;
+}
+
+.meetingBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+
+    flex: 1;
+    min-height: 0;
+}
+
+/* 영상 영역 */
+.videoArea {
+    background: #000;
+    border-radius: 16px;
+    min-height: 360px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* 채팅 영역 */
+.chatArea {
+    background: #ffffff;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+
+    height: 100%;
+    min-height: 0;
+}
+
+.chatMessages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.chatBubble {
+    background: #eef3ef;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* 입력창 */
+.chatInput {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+/* 공통 버튼 기본 */
+.chatRoom button {
+    padding: 10px 18px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 14px;
+
+    background: linear-gradient(135deg, #7fae96, #90be70);
+    color: #1f1f1f;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.chatRoom button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.chatRoom button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.roomItem button {
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+.roomInput {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.roomInput button{
+    background: #ffffff;
+    color: #2f6f4f;
+    border: 2px solid #90be70;
+    box-shadow: none;
+}
+
+.roomInput button:hover {
+    background: #f3faf5;
+}
+
+.chatInput button {
+    padding: 10px 22px;
+    border-radius: 22px;
+    font-size: 14px;
+
+    background: linear-gradient(135deg, #5b8f8f, #90be70);
+    color: #000;
+}
+
+.chatInput input {
+    border-radius: 22px;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+}
+
+.chatInput input:focus {
+    outline: none;
+    border-color: #90be70;
+}

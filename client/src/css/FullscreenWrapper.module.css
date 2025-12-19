@@ -1,0 +1,33 @@
+.wrpper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* 전체화면 버튼 */
+.fullscreenBtn {
+    position: absolute;
+
+    left: 70%;
+   
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    font-size: 16px;
+
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+}
+
+.fullscreenBtn:hover {
+    transform: scale(1.05);
+}
