@@ -5,6 +5,7 @@ import homeSchool.com.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class FindPwIdService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
-    private final MailSender mailSender;
+    private final JavaMailSender mailSender;
 
     // 이메일로 아이디 조회
     public String findUsernameByEmail(String email){

@@ -34,7 +34,7 @@ const ContactNew = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:8080/api/contact/new", {
+            const response = await fetch("https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/contact/new", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

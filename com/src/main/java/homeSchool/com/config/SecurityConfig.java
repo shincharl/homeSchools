@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -41,29 +42,29 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, DaoAuthenticationProvider authProvider, JwtAuthenticationFilter jwtFilter) throws Exception {
         http
-                .authenticationProvider(authProvider) // 여기에 provider 등록
-                .csrf(csrf -> csrf.disable())
-                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/oauth2/authorize/kakao/**").permitAll()
-                        .requestMatchers("/api/oauth2/authorize/naver/**").permitAll()
-                        .requestMatchers("/h2-console/**").permitAll() // H2 콘솔 허용
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/api/login").permitAll()
-                        .requestMatchers("/api/register").permitAll()
-                        .requestMatchers("/api/address/**").permitAll()
-                        .requestMatchers("/api/contacts/**").permitAll() // 누구나 접근 가능
-                        .requestMatchers("api/id/find").permitAll()
-                        .requestMatchers("/api/password/find").permitAll()
-                        .requestMatchers("/api/**").authenticated()
-                        .anyRequest().permitAll()
-                )
-                .addFilterBefore(jwtFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class)
+          .authenticationProvider(authProvider) // 여기에 provider 등록
+          .csrf(csrf -> csrf.disable())
+          .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
+          .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+          .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/api/oauth2/authorize/kakao/**").permitAll()
+            .requestMatchers("/api/oauth2/authorize/naver/**").permitAll()
+            .requestMatchers("/h2-console/**").permitAll() // H2 콘솔 허용
+            .requestMatchers("/login").permitAll()
+            .requestMatchers("/api/login").permitAll()
+            .requestMatchers("/api/register").permitAll()
+            .requestMatchers("/api/address/**").permitAll()
+            .requestMatchers("/api/contacts/**").permitAll() // 누구나 접근 가능
+            .requestMatchers("api/id/find").permitAll()
+            .requestMatchers("/api/password/find").permitAll()
+            .requestMatchers("/api/**").authenticated()
+            .anyRequest().permitAll()
+          )
+          .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin(form -> form
                         .loginProcessingUrl("/api/login") // POST 요청 처리
                         .successHandler((req, res, auth) -> {
-
+                          ;
                             Object principal = auth.getPrincipal();
                             String nickname = "";
                             Long memberId = null;
@@ -89,6 +90,9 @@ public class SecurityConfig {
                             );
                         })
                         .failureHandler((req, res, ex) -> {
+                          System.out.println("Request username: " + req.getParameter("username"));
+                          System.out.println("Request password: " + req.getParameter("password"));
+                          System.out.println("AuthenticationException: " + ex.getMessage());
                             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                             res.setContentType("application/json;charset=UTF-8");
                             res.getWriter().write("{\"message\":\"fail\"}");
@@ -111,7 +115,9 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOriginPatterns(Arrays.asList("http://localhost:5173"));
+        config.setAllowedOriginPatterns(Arrays.asList(
+            "http://localhost:5173",
+            "https://gwi-homeschool.herokuapp.com"));
 
 
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));

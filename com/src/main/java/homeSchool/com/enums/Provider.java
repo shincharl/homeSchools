@@ -1,5 +1,5 @@
 package homeSchool.com.enums;
 
 public enum Provider {
-    LOCAL, KAKAO, Naver
+    LOCAL, KAKAO, NAVER
 }

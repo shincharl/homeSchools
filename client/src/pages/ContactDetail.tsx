@@ -34,7 +34,7 @@ const ContactDetail = () => {
             return;
         }
 
-        fetch(`http://localhost:8080/api/contact/${id}`, {
+        fetch(`https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/contact/${id}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const ContactDetail = () => {
             return;
         }
 
-        fetch(`http://localhost:8080/api/contact/${id}`, {
+        fetch(`https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/contact/${id}`, {
             method: "DELETE",
             headers: {
             "Content-Type": "application/json",

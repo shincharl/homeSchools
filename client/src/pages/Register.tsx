@@ -58,7 +58,7 @@ const Register = () => {
         }
 
         try {
-            const res = await fetch("http://localhost:8080/api/register",{
+            const res = await fetch("https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/register",{
                 method:"POST",
                 headers: {"Content-Type":"application/json"},
                 body: JSON.stringify(form),
@@ -85,7 +85,7 @@ const Register = () => {
         }
 
         try {
-            const res = await fetch(`http://localhost:8080/api/address/search?keyword=${encodeURIComponent(keyword)}`);
+            const res = await fetch(`https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/address/search?keyword=${encodeURIComponent(keyword)}`);
             const data: JusoItem[] = await res.json();
 
             setAddressResult(data);  

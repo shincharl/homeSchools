@@ -1,6 +1,7 @@
 package homeSchool.com.service;
 
 import homeSchool.com.entity.Member;
+import homeSchool.com.enums.Provider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,7 +27,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return member.getProvider() + "_" + member.getProviderId();
+      return member.getProvider() + "_" + member.getProviderId();
     }
 
     public String getNickname(){

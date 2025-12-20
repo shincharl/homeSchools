@@ -33,7 +33,7 @@ const Contact = () => {
         if(keyword) query.append("keyword", keyword);
 
 
-        fetch(`http://localhost:8080/api/contacts?${query.toString()}`, {
+        fetch(`https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/contacts?${query.toString()}`, {
             method: "GET",
             credentials: "include", // 쿠키 전송
             headers: {

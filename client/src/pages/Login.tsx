@@ -20,7 +20,7 @@ const Login = () => {
         body.append("password", formData.get("password") as string);
 
         try {
-            const res = await fetch("http://localhost:8080/api/login", {
+            const res = await fetch("https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -62,11 +62,11 @@ const Login = () => {
     }
 
     const kakaoLogin = () => {
-        window.location.href = "http://localhost:8080/api/oauth2/authorize/kakao/start";
+        window.location.href = "https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/oauth2/authorize/kakao/start";
     };
 
     const naverLogin = () => {
-        window.location.href = "http://localhost:8080/api/oauth2/authorize/naver/start";
+        window.location.href = "https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/oauth2/authorize/naver/start";
     };
 
     return (

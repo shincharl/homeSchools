@@ -19,7 +19,7 @@ import ChangePassword from './pages/ChangePassword';
 
 function App() { 
 
- const socket = useMemo(() => io("http://localhost:3000"), []); // App 최초 렌더링 시 한 번만
+ const socket = useMemo(() => io("https://homeschoolswebrtcserver-production.up.railway.app"), []); // App 최초 렌더링 시 한 번만
 
   const { isLoggedIn } = useAuth(); // 로그인 상태 
 

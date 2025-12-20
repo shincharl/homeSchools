@@ -7,12 +7,12 @@ import FullscreenWrapper from "./FullscreenWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch } from "../store";
 import type { RootState } from "../store/index";
-import { resetChat, setConnected, setCurrentRoom, setRoomCount } from "../store/chatSlice";
+import { resetChat, setConnected, setCurrentRoom, setRoomCount, setGuestNickname } from "../store/chatSlice";
 
 const ChatRoom = ({socket}) => {
 
   const dispatch = useDispatch<AppDispatch>();
-  const {isConnected, currentRoom, roomCount} = useSelector((state: RootState) => state.chat);
+  const {isConnected, currentRoom, roomCount, guestNickname} = useSelector((state: RootState) => state.chat);
   const {startConnection, messages, sendMessage, roleRef} = useContext(WebRTCContext);
   const {nickname} = useAuth();
 
@@ -20,7 +20,7 @@ const ChatRoom = ({socket}) => {
   const [msg, setMsg] = useState("");
   const welcome = !isConnected; // Redux 상태로 판단
 
-  const [guestNickname, setGuestNickname] = useState<string | null>(null);
+  // const [guestNickname, setGuestNickname] = useState<string | null>(null);
 
    type RoomInfo = {
     roomId: string;
@@ -62,11 +62,11 @@ const ChatRoom = ({socket}) => {
             window.location.href = "/";
         });
         socket.on("guestJoined", ({nickname}) => {
-            setGuestNickname(nickname);
+            dispatch(setGuestNickname(nickname));
         });
 
         socket.on("hostInfo", ({nickname}) => {
-            setGuestNickname(nickname);
+            dispatch(setGuestNickname(nickname));
         });
 
         return () => {
@@ -138,7 +138,6 @@ const ChatRoom = ({socket}) => {
                     <div className="roomInput">
                         <input value={roomInput} onChange={(e) => setRoomInput(e.target.value)} placeholder="새 방 이름 입력" />
                         <button onClick={handleJoinAsHost}>방 만들기</button>
-                        <button onClick={handleJoinAsGuest}>참여하기</button>
                     </div> 
                 </div>
             )}
