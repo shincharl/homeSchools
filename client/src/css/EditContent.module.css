@@ -87,3 +87,58 @@ textarea {
     padding: 100px 0;
     color: #5b8c5a;
 }
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+        line-height: 1.4;
+    }
+
+    .form {
+        gap: 16px;
+    }
+
+    .inputGroup label {
+        font-size: 14px;
+    }
+
+    .inputGroup input,
+    .inputGroup textarea {
+        font-size: 15px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    .submitBtn {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .loading {
+        padding: 60px 0;
+        font-size: 16px;
+    }
+}

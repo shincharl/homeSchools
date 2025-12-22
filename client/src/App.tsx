@@ -6,7 +6,7 @@ import Contacts from './pages/Contacts';
 import ContactNew from './pages/ContactNew';
 import ContactDetail from './pages/ContactDetail';
 import Login from './pages/Login';
-import PrivateRoute from './components/privateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './pages/Register';
 import EditContact from './pages/EditContact';
 import OAuthRedirect from './pages/OAuthRedirect';
@@ -16,6 +16,7 @@ import WebRTCProvider from './providers/WebRTCProvider';
 import { io } from 'socket.io-client';
 import FindPwId from './pages/FindPwId';
 import ChangePassword from './pages/ChangePassword';
+import { useMemo } from 'react';
 
 function App() { 
 
@@ -36,7 +37,16 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path='/contact/:id' element={<ContactDetail/>}/>
+          
+          <Route 
+              path='/contact/:id'
+              element={
+                <PrivateRoute>
+                  <ContactDetail />
+                </PrivateRoute>
+                }
+              />
+
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/changepassword' 
@@ -47,6 +57,7 @@ function App() {
             }
             />
           <Route path="/contact/edit/:id" element={<EditContact/>}/>
+
           <Route path="/oauth/redirect" element={<OAuthRedirect/>}/>
           <Route path='/chating' element={
             <IntoChating isLoggedIn={isLoggedIn}>

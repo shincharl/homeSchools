@@ -1,4 +1,4 @@
-import ChatRoom from "../components/chatRoom";
+import ChatRoom from "../components/ChatRoom";
 import Styles from "../css/Chating.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";

@@ -28,7 +28,7 @@ const ChangePassword = () => {
             setLoading(true);
 
             try {
-                const res = await fetch("http://localhost:8080/api/password/change", {
+                const res = await fetch("https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/password/change", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

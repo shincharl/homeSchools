@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 
 import java.util.Arrays;
 
@@ -47,6 +52,7 @@ public class SecurityConfig {
           .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
           .cors(cors -> cors.configurationSource(corsConfigurationSource()))
           .authorizeHttpRequests(auth -> auth
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/api/oauth2/authorize/kakao/**").permitAll()
             .requestMatchers("/api/oauth2/authorize/naver/**").permitAll()
             .requestMatchers("/h2-console/**").permitAll() // H2 콘솔 허용
@@ -55,7 +61,7 @@ public class SecurityConfig {
             .requestMatchers("/api/register").permitAll()
             .requestMatchers("/api/address/**").permitAll()
             .requestMatchers("/api/contacts/**").permitAll() // 누구나 접근 가능
-            .requestMatchers("api/id/find").permitAll()
+            .requestMatchers("/api/id/find").permitAll()
             .requestMatchers("/api/password/find").permitAll()
             .requestMatchers("/api/**").authenticated()
             .anyRequest().permitAll()
@@ -90,9 +96,6 @@ public class SecurityConfig {
                             );
                         })
                         .failureHandler((req, res, ex) -> {
-                          System.out.println("Request username: " + req.getParameter("username"));
-                          System.out.println("Request password: " + req.getParameter("password"));
-                          System.out.println("AuthenticationException: " + ex.getMessage());
                             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                             res.setContentType("application/json;charset=UTF-8");
                             res.getWriter().write("{\"message\":\"fail\"}");
@@ -115,9 +118,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOriginPatterns(Arrays.asList(
-            "http://localhost:5173",
-            "https://gwi-homeschool.herokuapp.com"));
+      config.setAllowedOrigins(Arrays.asList(
+            //"http://localhost:5173",
+            //"https://gwi-homeschool.herokuapp.com",
+            //"https://gwi-homeschool-8c27de57ef07.herokuapp.com",
+            "https://home-schools-front-cfvk.vercel.app",
+            "https://home-schools-front-cfvk-git-main-gwi-labs-projects.vercel.app",
+            "https://home-schools-front-cfvk-4jw7e2u9n-gwi-labs-projects.vercel.app"
+        ));
 
 
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
@@ -127,5 +135,16 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
+    }
+
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    public CorsFilter corsFilter() {
+      return new CorsFilter(corsConfigurationSource());
+    }
+
+    @Bean
+    public ForwardedHeaderFilter forwardedHeaderFilter() {
+      return new ForwardedHeaderFilter();
     }
 }

@@ -23,8 +23,8 @@ const FindPwId = () => {
         try {
             const url = 
                 mode === "pw"
-                    ? "http://localhost:8080/api/password/find" // 비밀번호 찾기 API
-                    : "http://localhost:8080/api/id/find"; // 아이디 찾기 API
+                    ? "https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/password/find" // 비밀번호 찾기 API
+                    : "https://gwi-homeschool-8c27de57ef07.herokuapp.com/api/id/find"; // 아이디 찾기 API
 
             const res = await fetch(url, {
                 method: "POST",

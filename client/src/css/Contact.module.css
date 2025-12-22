@@ -194,3 +194,94 @@
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    /* 검색 영역 */
+    .searchContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .searchContainer input {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .searchContainer button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* 테이블 → 카드형 느낌 */
+    .table {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        border-bottom: 1px solid #eee;
+        padding: 12px 10px;
+    }
+
+    .table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border: none;
+        font-size: 13px;
+    }
+
+    .table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #555;
+    }
+
+    /* 페이지네이션 */
+    .pagination {
+        gap: 8px;
+        margin-top: 30px;
+        font-size: 13px;
+    }
+
+    .pagination button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    /* 글쓰기 버튼 */
+    .writeBtnContainer {
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .writeBtn {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-size: 15px;
+    }
+}

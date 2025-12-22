@@ -36,3 +36,24 @@
     flex-direction: column;
     gap: 20px;
 }
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        width: 100%;
+        margin: 16px auto 0;
+        padding: 18px 16px;
+        border-radius: 14px;
+        gap: 16px;
+    }
+}

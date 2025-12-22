@@ -197,3 +197,108 @@
     outline: none;
     border-color: #90be70;
 }
+
+@media (max-width: 768px) {
+
+    /* 전체 */
+    .chatRoom {
+        height: auto;
+    }
+
+    /* 입장 카드 */
+    .welcomeCard {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .welcomeCard h3 {
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+
+    /* 방 리스트 */
+    .roomItem {
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    .roomItem span {
+        font-size: 12px;
+    }
+
+    /* 방 입력 */
+    .roomInput {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .roomInput input {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .roomInput button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* 회의 레이아웃 */
+    .meetingLayout {
+        gap: 10px;
+    }
+
+    .meetingHeader {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* 좌우 → 상하 */
+    .meetingBody {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    /* 영상 */
+    .videoArea {
+        min-height: 220px;
+        border-radius: 14px;
+    }
+
+    /* 채팅 */
+    .chatArea {
+        border-radius: 14px;
+        max-height: 45vh;
+    }
+
+    .chatMessages {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .chatBubble {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    /* 입력창 */
+    .chatInput {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .chatInput input {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+    .chatInput button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    /* 버튼 터치 강화 */
+    .chatRoom button {
+        min-height: 44px;
+    }
+}

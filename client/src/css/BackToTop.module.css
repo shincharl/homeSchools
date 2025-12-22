@@ -30,3 +30,22 @@
     outline: 3px solid rgba(0, 0, 0, 0.12);
     outline-offset: 3px;
 }
+
+@media (max-width: 768px) {
+
+    .btn {
+        right: 16px;      /* 가장자리 너무 붙지 않게 */
+        bottom: 20px;
+
+        width: 44px;      /* 모바일에 살짝 작은 버튼 */
+        height: 44px;
+        font-size: 16px;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:focus {
+        outline-width: 2px;
+        outline-offset: 2px;
+    }
+}

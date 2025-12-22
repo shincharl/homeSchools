@@ -140,3 +140,78 @@
 .bottomLinks a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .loginBox {
+        width: 100%;
+        height: auto;
+        padding: 24px 20px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .loginBox h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* 탭 영역 */
+    .tabs {
+        margin-bottom: 20px;
+    }
+
+    .tabs button {
+        font-size: 14px;
+        padding: 14px 0;          /* 터치 영역 확대 */
+    }
+
+    .tabs .active {
+        border-bottom-width: 2px;
+    }
+
+    .form {
+        gap: 16px;
+    }
+
+    .inputGroup label {
+        font-size: 13px;
+    }
+
+    .inputGroup input {
+        font-size: 15px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .loginBtn {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 16px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .bottomLinks {
+        margin-top: 18px;
+    }
+
+    .bottomLinks a {
+        font-size: 13px;
+    }
+}

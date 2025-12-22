@@ -104,3 +104,75 @@
 .editBtn:active {
     background: #4e89b8;
 }
+
+
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    /* 제목 */
+    .title {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 12px;
+        word-break: keep-all;
+    }
+
+    /* 작성자 / 날짜 */
+    .info {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    /* 본문 */
+    .bodyBox {
+        padding: 16px;
+        font-size: 14px;
+        line-height: 1.7;
+        min-height: auto;
+        border-radius: 8px;
+        word-break: break-word;
+    }
+
+    /* 버튼 영역 */
+    .btnWrap {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
+    .backBtn,
+    .editBtn,
+    .deleteBtn {
+        padding: 12px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-left: 0;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    /* 로딩 / 에러 */
+    .loading,
+    .error {
+        padding: 60px 0;
+        font-size: 16px;
+    }
+}

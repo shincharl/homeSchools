@@ -35,7 +35,6 @@ const Login = () => {
             }
 
                 const data = await res.json();
-                console.log("USER:", data);
 
                 // AuthContext 상태 업데이트
                 setIsLoggedIn(true);

@@ -97,3 +97,60 @@ form {
 .submitBtn:hover {
     background: #9c856e;
 }
+
+@media (max-width: 768px) {
+
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .content {
+        padding: 0;
+    }
+
+    /* 폼 컨테이너 */
+    .formContainer {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 16px;
+        margin-top: 20px;
+        min-height: auto;
+        border-radius: 12px;
+    }
+
+    .formContainer h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    /* 폼 요소 */
+    .formGroup label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .formGroup input,
+    .formGroup textarea {
+        font-size: 14px;
+        padding: 10px 12px;
+        border-radius: 6px;
+    }
+
+    .formGroup textarea {
+        min-height: 140px;
+    }
+
+    /* 버튼 */
+    .submitBtn {
+        font-size: 16px;
+        padding: 14px 0;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}

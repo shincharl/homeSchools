@@ -84,3 +84,51 @@
     z-index: 2;
 }
 
+@media (max-width: 768px){
+
+    .pageEnvelope {
+        padding: 20px 10px;
+    }
+
+    .wrap {
+        width: 100%;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    /* 버튼 */
+    .Start {
+        width: 100%;
+        max-width: 300px;
+        padding: 14px 0;
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    /* 이미지 영역 */
+    .images {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin: 30px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .teach1,
+    .teach2 {
+        position: static;
+        width: 100%;
+        height: auto;
+        max-height: 260px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+}

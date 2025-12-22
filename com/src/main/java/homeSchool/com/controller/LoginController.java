@@ -76,7 +76,7 @@ public class LoginController {
         KakaoUserDTO kakaoUser = kaKaoService.kakoLogin(code);
 
         if (kakaoUser == null) {
-            response.sendRedirect("http://localhost:5178/login?error=kakao_login_failed");
+            response.sendRedirect("https://home-schools-front-4ezq.vercel.app/login?error=kakao_login_failed");
             return;
         }
 
@@ -94,7 +94,7 @@ public class LoginController {
 
         // 로그인 성공, 프론트로 로그인한 사용자(카카오 프로필 닉네임)의 닉네임 들고 redirect
         response.sendRedirect(
-                "http://localhost:5173/oauth/redirect" +
+                "https://home-schools-front-4ezq.vercel.app/oauth/redirect" +
                         "?token=" + URLEncoder.encode(token, StandardCharsets.UTF_8)
                 );
     }
@@ -110,7 +110,7 @@ public class LoginController {
         String accessToken = naverService.getAccessToken(code, state);
 
         if(accessToken == null){
-            response.sendRedirect("http://localhost:5173/login?error=naver_login_failed");
+            response.sendRedirect("https://home-schools-front-4ezq.vercel.app/login?error=naver_login_failed");
             return;
         }
         
@@ -118,7 +118,7 @@ public class LoginController {
         NaverUserDTO naverUser = naverService.getUserProfile(accessToken);
 
         if (naverUser == null) {
-            response.sendRedirect("http://localhost:5173/login?error=naver_login_failed");
+            response.sendRedirect("https://home-schools-front-4ezq.vercel.app/login?error=naver_login_failed");
             return;
         }
 
@@ -134,7 +134,7 @@ public class LoginController {
         
         // 5. 로그인 성공, 프런트로 리다이렉트
         response.sendRedirect(
-                "http://localhost:5173/oauth/redirect?token=" + URLEncoder.encode(token, StandardCharsets.UTF_8)
+                "https://home-schools-front-4ezq.vercel.app/oauth/redirect?token=" + URLEncoder.encode(token, StandardCharsets.UTF_8)
         );
 
     }

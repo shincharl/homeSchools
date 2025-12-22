@@ -31,3 +31,18 @@
 .fullscreenBtn:hover {
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+
+    .wrpper {
+        position: relative;
+    }
+
+    .fullscreenBtn:hover {
+        transform: none; /* 모바일엔 hover 제거 */
+    }
+
+    .fullscreenBtn:active {
+        transform: scale(0.95);
+    }
+}

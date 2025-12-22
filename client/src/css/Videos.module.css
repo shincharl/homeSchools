@@ -105,3 +105,59 @@
     background: #d9534f !important;
     color: #fff;
 }
+
+@media (max-width: 768px) {
+
+    /* 전체 영상 레이아웃 */
+    .videoLayout {
+        gap: 12px;
+        padding: 6px 0;
+        height: 100dvh; /* 모바일 주소창 대응 */
+        max-width: 100%;
+    }
+
+    /* 영상 카드 */
+    .videoCard {
+        border-radius: 16px;
+        min-height: 180px;
+    }
+
+    /* 영상 */
+    .videoWrapper video {
+        object-fit: cover; /* 모바일은 몰입감 우선 */
+    }
+
+    /* 카메라 없을 때 */
+    .placeholder {
+        font-size: 13px;
+    }
+
+    /* 이름/상태 뱃지 */
+    .badge {
+        top: 8px;
+        left: 8px;
+        font-size: 11px;
+        padding: 4px 6px;
+        border-radius: 6px;
+    }
+
+    /* 하단 컨트롤 */
+    .videoFooter {
+        height: 72px;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .videoFooter select {
+        font-size: 13px;
+        padding: 8px 14px;
+        border-radius: 24px;
+    }
+
+    .videoFooter button {
+        font-size: 13px;
+        padding: 10px 18px;
+        border-radius: 24px;
+        min-height: 44px; /* 터치 영역 확보 */
+    }
+}

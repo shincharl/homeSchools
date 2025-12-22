@@ -150,3 +150,90 @@
     padding: 4px 12px;
     border-top: 1px solid #eee;
 }
+
+@media (max-width: 768px) {
+
+    /* 전체 여백 축소 */
+    .pageEnvelope {
+        padding: 20px 0;
+    }
+
+    .wrap {
+        width: 94%;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .content {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    /* 로그인 박스 */
+    .loginBox {
+        padding: 28px 20px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .loginBox h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* 폼 */
+    .form {
+        gap: 14px;
+    }
+
+    .inputGroup label {
+        font-size: 13px;
+    }
+
+    .inputGroup input {
+        font-size: 15px;
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    /* 로그인 버튼 */
+    .loginBtn {
+        padding: 14px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    /* 하단 링크 → 세로 정렬 */
+    .bottomLinks {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-top: 18px;
+    }
+
+    .bottomLinks a {
+        font-size: 14px;
+    }
+
+    /* 주소 드롭다운 */
+    .dropdown {
+        max-height: 180px;
+        border-radius: 10px;
+    }
+
+    .addressList li {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .pagination {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    /* 터치 영역 확보 */
+    button,
+    input {
+        min-height: 44px;
+    }
+}
