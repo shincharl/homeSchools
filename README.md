@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=GWI_HomeSchool&fontSize=90)
 
-<img width="1903" height="982" alt="image" src="https://github.com/user-attachments/assets/f034e12e-4c0e-4fa0-a142-3add84197202" />
+<img width="1700" height="700" alt="image" src="[https://github.com/user-attachments/assets/f034e12e-4c0e-4fa0-a142-3add84197202](https://home-schools-front-cfvk.vercel.app/)" />
 
 
 홈스쿨 프로그램 1.0
