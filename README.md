@@ -1,5 +1,8 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=GWI_HomeSchool&fontSize=90)
 
+<img width="1536" height="1024" alt="22bc1f1e-431e-484d-b303-f8a4718eb1de" src="https://github.com/user-attachments/assets/8aaebe53-f550-4dd5-9023-681bd5f161f7" />
+
+
 홈스쿨 프로그램 1.0
 
 ## 1. 프로젝트 소개
