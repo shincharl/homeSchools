@@ -1,4 +1,4 @@
-<img width="1907" height="975" alt="image" src="https://github.com/user-attachments/assets/2ca75077-be46-462e-ba60-e5e152b4989a" />![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=GWI_HomeSchool&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=GWI_HomeSchool&fontSize=90)
 
 <img width="1907" height="975" alt="image" src="https://github.com/user-attachments/assets/7ec6c484-bc39-4e94-86cf-debcd55f2687" />
 <a href="https://home-schools-front-cfvk.vercel.app/">홈스쿨 프로그램 1.0</a>
