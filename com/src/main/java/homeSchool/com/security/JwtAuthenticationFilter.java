@@ -21,39 +21,53 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtProvider jwtProvider;
     private final CustomUserDetailsService userDetailsService;
 
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-      String path = request.getServletPath();
-      return "OPTIONS".equalsIgnoreCase(request.getMethod()) || "/api/login".equals(path);
-    }
+  @Override
+  protected boolean shouldNotFilter(HttpServletRequest request) {
+    String path = request.getServletPath();
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    return "OPTIONS".equalsIgnoreCase(request.getMethod())
+      || path.equals("/api/login")
+      || path.equals("/api/register")
+      || path.startsWith("/api/address")
+      || path.startsWith("/api/contacts")
+      || path.equals("/api/id/find")
+      || path.equals("/api/password/find")
+      || path.startsWith("/api/oauth2/authorize");
+  }
+
+      @Override
+      protected void doFilterInternal(HttpServletRequest request,
+                                      HttpServletResponse response,
+                                      FilterChain filterChain)
+        throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
 
-        if(authHeader != null && authHeader.startsWith("Bearer ")){
-            String token = authHeader.substring(7);
+        // 🔒 토큰 없으면 그냥 통과 (permitAll / 비로그인 요청)
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+          filterChain.doFilter(request, response);
+          return;
+        }
 
-            if(jwtProvider.validateToken(token)){
-                Long memberId = jwtProvider.getMemberId(token);
+        String token = authHeader.substring(7);
 
-                UserDetails userDetails =
-                        userDetailsService.loadUserById(memberId);
+        if (jwtProvider.validateToken(token)) {
+          Long memberId = jwtProvider.getMemberId(token);
 
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails,
-                                null,
-                                userDetails.getAuthorities()
-                        );
+          UserDetails userDetails =
+            userDetailsService.loadUserById(memberId);
 
-                SecurityContextHolder.getContext()
-                        .setAuthentication(authentication);
-            }
+          UsernamePasswordAuthenticationToken authentication =
+            new UsernamePasswordAuthenticationToken(
+              userDetails,
+              null,
+              userDetails.getAuthorities()
+            );
+
+          SecurityContextHolder.getContext()
+            .setAuthentication(authentication);
         }
 
         filterChain.doFilter(request, response);
-
+      }
     }
-}
